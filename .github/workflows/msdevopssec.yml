@@ -1,7 +1,7 @@
 name: MSDO
 
 on:
-  push:
+  pull_request: # Triggers the workflow on pull request events but only for the main branch
     branches:
       - main
   workflow_dispatch: # This adds the manual trigger
