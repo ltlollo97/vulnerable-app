@@ -1,5 +1,6 @@
 provider "azurerm" {
   features {}
+  version = "=4.20.0"
 }
 
 # Data source to reference the existing resource group
