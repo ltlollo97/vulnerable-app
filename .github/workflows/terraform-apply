@@ -6,6 +6,8 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    env:
+      TF_VAR_azure_sub: ${{ secrets.AZURE_SUBSCRIPTION }}
 
     steps:
     - name: Checkout repository
