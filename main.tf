@@ -2,10 +2,15 @@ provider "azurerm" {
   features {}
 }
 
+# Data source to reference the existing resource group
+data "azurerm_resource_group" "example" {
+  name = "PrismaCloudDemoEnv"
+}
+
 resource "azurerm_storage_account" "example" {
-  name                     = "examplestorageacc"
-  resource_group_name      = "Defender-demo-env"
-  location                 = "West Europe"
+  name                     = "examplestorageacct"
+  resource_group_name      = data.azurerm_resource_group.example.name
+  location                 = data.azurerm_resource_group.example.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 
@@ -19,8 +24,7 @@ resource "azurerm_storage_account" "example" {
   enable_https_traffic_only = false
 
   tags = {
-    BU    = "Cloud"
     Owner = "Lorenzo Nardi"
-    App   = "DefenderDemoEnv"
+    App   = "PrismaAppSecurity"
   }
 }
