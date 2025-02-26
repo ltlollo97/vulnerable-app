@@ -1,7 +1,3 @@
-locals {
-  azure_credentials = jsondecode(var.AZURE_CREDENTIALS)
-}
-
 provider "azurerm" {
   features {}
   version = "=4.20.0"
@@ -26,8 +22,4 @@ resource "azurerm_storage_account" "example" {
   tags = {
     owner = "Lorenzo Nardi"
   }
-}
-
-variable "AZURE_CREDENTIALS" {
-  type = string
 }
