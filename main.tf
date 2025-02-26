@@ -1,7 +1,12 @@
+variable "azure_sub" {
+  type      = string
+  sensitive = true
+}
+
 provider "azurerm" {
   features {}
   version = "=4.20.0"
-  subscription_id = local.azure_credentials.subscriptionId
+  subscription_id = var.azure_sub
 }
 
 # Data source to reference the existing resource group
