@@ -12,6 +12,7 @@ provider "azurerm" {
 # Data source to reference the existing resource group
 data "azurerm_resource_group" "example" {
   name = "PrismaCloudDemoEnv"
+  location = "Italy North"
 }
 
 # Example resource using the existing resource group
