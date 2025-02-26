@@ -15,8 +15,9 @@ resource "azurerm_storage_account" "example" {
   location                 = data.azurerm_resource_group.example.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
-  enable_https_traffic_only = "false" # misconfiguration
-  enable_blob_encryption = "false" # misconfiguration
+  https_traffic_only_enabled  = "false" # misconfiguration
+  min_tls_version = "TLS1_0" # misconfiguration
+  
   tags = {
     owner = "Lorenzo Nardi"
   }
